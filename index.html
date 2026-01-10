@@ -15,7 +15,7 @@
             --text-sub: #86868b;
             --accent: #0071e3;
             --ai-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            --pmo-gradient: linear-gradient(135deg, #0071e3 0%, #4facfe 100%); /* 新增：PMO 蓝色渐变 */
+            --pmo-gradient: linear-gradient(135deg, #0071e3 0%, #4facfe 100%);
             --card-bg: #fbfbfd;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -32,7 +32,7 @@
 
         a { text-decoration: none; color: inherit; transition: var(--transition); }
         ul { list-style: none; }
-        .container { max-width: 1200px; /* 加宽容器以容纳三列 */ margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 100px 0; }
 
         /* --- 导航栏 --- */
@@ -106,7 +106,7 @@
         .btn-secondary { background: #f5f5f7; color: var(--text-main); }
         .btn:hover { transform: translateY(-3px); }
 
-        /* --- 故事板块 (长城双照片布局) --- */
+        /* --- 故事板块 --- */
         .story-section { background: #fafafa; }
         .split-layout { display: flex; align-items: center; gap: 60px; }
         
@@ -144,7 +144,6 @@
         /* --- 核心竞争力对比 (三列布局) --- */
         .focus-grid {
             display: grid;
-            /* 调整为自动适应3列 */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
@@ -160,13 +159,10 @@
         }
         .focus-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         
-        /* AI 卡片样式 */
         .focus-card.ai-card {
             background: linear-gradient(180deg, #fff 0%, #fbfaff 100%);
             border: 1px solid rgba(118, 75, 162, 0.15);
         }
-        
-        /* 新增：PMO 卡片样式 */
         .focus-card.pmo-card {
             background: linear-gradient(180deg, #fff 0%, #f0f8ff 100%);
             border: 1px solid rgba(0, 113, 227, 0.15);
@@ -185,10 +181,83 @@
         }
         .pill-sap { background: #f0f0f0; color: #333; }
         .pill-ai { background: #f3e5f5; color: #7b1fa2; border: 1px solid rgba(123, 31, 162, 0.1); }
-        /* 新增：PMO 标签样式 */
         .pill-pmo { background: #e3f2fd; color: #0071e3; border: 1px solid rgba(0, 113, 227, 0.1); }
 
-        /* --- 语言模块样式 --- */
+        /* --- 工作经历 (Timeline) --- */
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 160px; 
+            top: 10px;
+            bottom: 0;
+            width: 2px;
+            background: #f0f0f0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        
+        .timeline-date {
+            width: 160px;
+            flex-shrink: 0;
+            text-align: right;
+            padding-right: 40px;
+            font-weight: 600;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            padding-top: 5px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 154px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--accent);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 40px;
+            transition: var(--transition);
+        }
+        .timeline-content:hover { transform: translateX(10px); }
+
+        .job-title { font-size: 1.3rem; font-weight: 700; color: #333; margin-bottom: 5px; }
+        .company-name { font-size: 1rem; color: #666; font-weight: 500; display: block; margin-bottom: 15px; }
+        
+        .job-desc { list-style: none; }
+        .job-desc li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .job-desc li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .highlight-word { font-weight: 600; color: #333; }
+
+        /* --- 语言模块 --- */
         .lang-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -206,24 +275,9 @@
         .lang-level { display: block; font-size: 0.85rem; color: #764ba2; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* --- 证书列表 --- */
-        .cert-container {
-            max-width: 900px;
-            margin: 80px auto 0;
-        }
-        .cert-list {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            overflow: hidden;
-        }
-        .cert-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
-            border-bottom: 1px solid #f5f5f7;
-            transition: background 0.2s;
-        }
+        .cert-container { max-width: 900px; margin: 80px auto 0; }
+        .cert-list { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); overflow: hidden; }
+        .cert-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; border-bottom: 1px solid #f5f5f7; transition: background 0.2s; }
         .cert-item:last-child { border-bottom: none; }
         .cert-item:hover { background: #fafafa; }
         .cert-main { display: flex; align-items: center; gap: 15px; }
@@ -239,6 +293,14 @@
             .hero-img-container { width: 200px; height: 200px; }
             .split-layout { flex-direction: column-reverse; }
             .gallery-item:nth-child(2) { margin-top: 20px; }
+            
+            /* 手机端时间轴调整 */
+            .timeline-container::before { left: 20px; }
+            .timeline-item { flex-direction: column; }
+            .timeline-date { width: 100%; text-align: left; padding-left: 40px; margin-bottom: 10px; }
+            .timeline-marker { left: 14px; }
+            .timeline-content { padding-left: 40px; }
+            
             .cert-item { flex-direction: column; align-items: flex-start; gap: 5px; }
             .cert-date { margin-left: 0; margin-top: 5px; font-size: 0.8rem; }
         }
@@ -252,8 +314,8 @@
             <nav class="nav-links">
                 <a href="#about">About</a>
                 <a href="#expertise" class="nav-highlight">Expertise</a>
+                <a href="#experience">Experience</a>
                 <a href="#certifications">Certifications</a>
-                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
@@ -276,7 +338,7 @@
             
             <div class="btn-group">
                 <a href="Resume_Yu_Kiryu.pdf" class="btn btn-primary" download>Download Resume (PDF)</a>
-                <a href="#expertise" class="btn btn-secondary">Explore My Focus ↓</a>
+                <a href="#experience" class="btn btn-secondary">See My History ↓</a>
             </div>
         </div>
     </section>
@@ -382,7 +444,73 @@
         </div>
     </section>
 
-    <section id="certifications" style="background: #fcfcfc;">
+    <section id="experience" style="background-color: #fbfbfd;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 60px; text-align: center;">Professional Experience</h2>
+            
+            <div class="timeline-container">
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">01/2024 - 05/2025</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">SAP Consultant</h3>
+                        <span class="company-name">EY Japan</span>
+                        <ul class="job-desc">
+                            <li>Executed migration and greenfield implementation on <span class="highlight-word">AWS</span> to replace on-premises SAP environments.</li>
+                            <li>Spearheaded the end-to-end setup and configuration of SAP ECC and HANA DB.</li>
+                            <li>Streamlined logistics processes for a major U.S. Oil & Gas company, identifying bottlenecks and benchmarking against best practices.</li>
+                            <li>Performed cloud running cost simulations and budget estimates.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">09/2021 - 12/2023</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Senior Associate</h3>
+                        <span class="company-name">Kyndryl Japan</span>
+                        <ul class="job-desc">
+                            <li>Supported large-scale system migration from IBM Cloud to <span class="highlight-word">Microsoft Azure</span>.</li>
+                            <li>Led the implementation of <span class="highlight-word">Red Hat Ansible Tower</span> to automate routine operational tasks.</li>
+                            <li>Managed incident response and coordinated seamless handovers with offshore teams (India).</li>
+                            <li>Executed SAP PI system copy, upgrade, and Dual-Stack Split procedures.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">04/2020 - 08/2021</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Junior Associate</h3>
+                        <span class="company-name">IBM Japan</span>
+                        <ul class="job-desc">
+                            <li>Managed system operations for critical infrastructure (AIX/Linux) across Japanese and Singaporean entities.</li>
+                            <li>Delivered monthly operational analysis and performance reports to overseas clients.</li>
+                            <li>Coordinated with global teams and facilitated cross-border communication.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-date">04/2019 - 03/2020</div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Teaching Assistant</h3>
+                        <span class="company-name">Kyoto University</span>
+                        <ul class="job-desc">
+                            <li>Supported academic activities and research assistance during Master's studies.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" style="background: #fff;">
         <div class="container cert-container" data-aos="zoom-in-up">
             <h2 style="font-size: 2rem; margin-bottom: 40px; text-align: center;">Professional Certifications</h2>
             
