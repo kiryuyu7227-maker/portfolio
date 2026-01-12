@@ -97,7 +97,7 @@
             font-size: 1.4rem;
             color: var(--text-sub);
             font-weight: 300;
-            max-width: 750px; /* 稍微加宽以容纳新文案 */
+            max-width: 750px;
             margin: 0 auto 40px;
         }
         
@@ -264,7 +264,33 @@
         }
         .highlight-word { font-weight: 600; color: #333; }
 
-        /* --- 语言模块 --- */
+        /* --- 语言模块 (新样式) --- */
+        .bridge-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        .bridge-img-wrapper {
+            flex: 0 0 180px; /* 固定宽度 */
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .bridge-img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .bridge-text-box {
+            flex: 1;
+            background: linear-gradient(135deg, #f0f8ff 0%, #f5f7fa 100%);
+            border: 1px solid rgba(0, 113, 227, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
         .lang-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -300,6 +326,15 @@
             .hero-img-container { width: 200px; height: 200px; }
             .split-layout { flex-direction: column-reverse; }
             .gallery-item:nth-child(2) { margin-top: 20px; }
+            
+            /* 手机端语言模块调整 */
+            .bridge-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .bridge-text-box {
+                padding: 20px;
+            }
             
             /* 手机端时间轴调整 */
             .timeline-container::before { left: 20px; }
@@ -408,7 +443,7 @@
                     <div>
                         <span class="skill-pill pill-ai">GenAI for SCM</span>
                         <span class="skill-pill pill-ai">Predictive Forecasting</span>
-                        <span class="skill-pill pill-ai">Risk Management</span>
+                        <span class="skill-pill pill-ai">Risk Modeling</span>
                         <span class="skill-pill pill-ai">Smart Inventory</span>
                     </div>
                 </div>
@@ -429,8 +464,27 @@
             </div>
             
             <div style="margin-top: 80px;" data-aos="fade-up">
-                <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 30px;">Global Communication</h3>
+                <h3 style="text-align: center; font-size: 1.5rem; margin-bottom: 30px;">Global Bridge & Communication</h3>
+                
+                <div class="bridge-container">
+                    <div class="bridge-img-wrapper">
+                        <img src="profile_bridge.JPG" alt="Yu Kiryu" class="bridge-img">
+                    </div>
+                    <div class="bridge-text-box">
+                        <p style="color: #333; font-size: 1.1rem; line-height: 1.8; margin: 0; font-weight: 500;">
+                            "More than just translation. I act as a 
+                            <span style="color: #0071e3; font-weight: 700;">cultural bridge</span>, 
+                            combining <strong>Asian execution efficiency</strong> (Japan/China) 
+                            with <strong>Western strategic goals</strong> to ensure seamless stakeholder management."
+                        </p>
+                    </div>
+                </div>
+
                 <div class="lang-grid">
+                    <div class="lang-card">
+                        <span class="lang-name">English</span>
+                        <span class="lang-level">Full Professional (C1)</span>
+                    </div>
                     <div class="lang-card">
                         <span class="lang-name">Japanese</span>
                         <span class="lang-level">Near-Native</span>
@@ -440,12 +494,9 @@
                         <span class="lang-level">Native</span>
                     </div>
                     <div class="lang-card">
-                        <span class="lang-name">English</span>
-                        <span class="lang-level">C1 / Full Professional</span>
-                    </div>
-                    <div class="lang-card" style="background: #fdfdfd; border-style: dashed;">
                         <span class="lang-name">Danish</span>
-                        <span class="lang-level" style="color:#e65100;">Beginner (Pursuing)</span>
+                        <span class="lang-level">Active Learner</span>
+                        <span style="display:block; font-size:0.75rem; color:#999; margin-top:4px;">Integrating into DK Culture</span>
                     </div>
                 </div>
             </div>
@@ -606,5 +657,4 @@
         });
     </script>
 </body>
-
 </html>
