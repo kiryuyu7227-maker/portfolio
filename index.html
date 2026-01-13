@@ -89,7 +89,7 @@
             margin-bottom: 20px;
         }
         
-        /* AI Innovation */
+        /* AI Innovation (Top) */
         .hero-title-main {
             font-size: 4.8rem;
             font-weight: 800;
@@ -98,7 +98,7 @@
             display: block;
         }
         
-        /* SAP Expertise */
+        /* SAP Expertise (Bottom) */
         .hero-title-sub {
             font-size: 3.8rem;
             font-weight: 800;
@@ -130,16 +130,17 @@
         .impact-box {
             margin: 0 auto 30px;
             max-width: 680px;
+            /* 极客风：浅灰色代码块背景 */
             background: #f6f8fa; 
             border: 1px solid #d0d7de;
             border-radius: 8px;
             padding: 25px;
-            text-align: left;
+            text-align: left; /* 代码左对齐 */
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             position: relative;
         }
         
-        /* 装饰：三个小圆点 */
+        /* 装饰：左上角的三个Mac窗口小圆点 */
         .impact-box::before {
             content: '•••'; 
             position: absolute;
@@ -151,10 +152,12 @@
             color: #e1e4e8;
             transition: color 0.3s;
         }
-        .impact-box:hover::before { color: #ff5f56; }
+        .impact-box:hover::before {
+            color: #ff5f56;
+        }
 
         .impact-text {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'JetBrains Mono', monospace; /* 代码字体 */
             font-size: 0.95rem;
             color: #24292f;
             font-weight: 400;
@@ -162,6 +165,7 @@
             margin-top: 10px;
         }
         
+        /* 模拟命令行提示符 ">" */
         .cmd-prompt {
             color: #0071e3;
             margin-right: 10px;
@@ -169,6 +173,7 @@
             user-select: none;
         }
 
+        /* 强调文字 */
         .code-highlight {
             font-weight: 700;
             color: #000;
@@ -177,6 +182,7 @@
             border-radius: 4px;
         }
 
+        /* 光标闪烁动画 */
         .cursor {
             display: inline-block;
             width: 8px;
@@ -191,37 +197,38 @@
             50% { opacity: 0; }
         }
         
-        /* --- 终端指令链接 --- */
-        .terminal-link {
+        /* --- 按钮样式 (Secondary Pill Button) --- */
+        .hero-scroll-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            background-color: transparent;
-            color: #86868b;
-            font-family: 'JetBrains Mono', monospace;
+            gap: 6px;
+            
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            
+            padding: 12px 24px;
+            border-radius: 30px;
+            
             font-size: 0.95rem;
-            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
             text-decoration: none;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: all 0.2s ease;
+            
+            /* 居中放置 */
+            margin-top: 25px; 
+            margin-left: auto;
+            margin-right: auto;
+            display: table;
+        }
+        
+        .hero-scroll-btn:hover {
+            background-color: #e8e8ed;
+            transform: translateY(-2px);
         }
 
-        .terminal-link:hover {
-            color: #0071e3;
-            transform: translateX(5px);
-        }
-
-        .terminal-link::before {
-            content: '>'; 
-            font-weight: 700;
-            color: #0071e3;
-            margin-right: 2px;
-        }
-        .terminal-link:hover { text-shadow: 0 0 15px rgba(0, 113, 227, 0.3); }
-
-        /* --- Footer --- */
+        /* --- Footer 功能区 --- */
         footer { 
             background: #f5f5f7; 
             padding: 80px 0 60px; 
@@ -279,6 +286,7 @@
         .btn-secondary { background: #fff; color: #1d1d1f; border: 1px solid #e5e5e5; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
+        /* Side Project Link */
         .side-project-link {
             margin-top: 20px;
             font-size: 0.9rem;
@@ -305,6 +313,105 @@
         }
         .hero > * { animation: fadeInUp 0.8s ease-out both; }
 
+        /* 手机适配 */
+        /* ========= 手机端适配修复补丁 (Mobile Fix) ========= */
+        /* 以下代码仅在屏幕宽度小于 768px (手机竖屏) 时生效，绝不影响电脑版 */
+        @media (max-width: 768px) {
+            
+            /* --- 1. Hero 区域基础调整 --- */
+            .hero { padding-top: 80px; padding-bottom: 60px; min-height: auto; }
+            .hero-img-container { width: 180px; height: 180px; margin-bottom: 25px; }
+            
+            /* 缩小超大标题，防止撑破屏幕 */
+            .hero-title-main { font-size: 3.2rem; line-height: 1.1; } 
+            .hero-title-sub { font-size: 2.4rem; margin-top: 0; } 
+            .subtitle-simple { font-size: 1.1rem; padding: 0 10px; margin-bottom: 30px; }
+
+            /* 代码块调整：增加左右留白，防止贴边 */
+            .impact-box { margin: 0 10px 30px; padding: 20px; }
+            .impact-text { font-size: 0.9rem; }
+
+            /* --- 2. 修复 Story/About 区域 (针对截图 5 的修复) --- */
+            /* 强制单栏布局：flex-direction: column-reverse 让文字在上方，图片在下方 */
+            .split-layout { 
+                flex-direction: column-reverse; 
+                gap: 30px;
+            }
+            
+            .story-content { 
+                width: 100%; 
+                text-align: left; 
+                padding: 0 5px; /* 给文字一点呼吸空间 */
+            }
+            
+            /* 缩小 Story 标题，防止 "Strategic Vision" 换行难看 */
+            .story-title { 
+                font-size: 2rem; 
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+
+            /* 图片区域宽度拉满 */
+            .story-gallery { 
+                width: 100%; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 10px;
+                margin-top: 10px;
+            }
+            /* 保持第二张图的错落感 */
+            .gallery-item:nth-child(2) { margin-top: 20px; }
+
+            /* --- 3. 修复 Timeline 时间轴 (针对截图 4 的修复) --- */
+            /* 关键修复：把线移到最左边 (left: 10px) */
+            .timeline-container::before { 
+                left: 10px; 
+            }
+            
+            .timeline-item { 
+                flex-direction: column; 
+                margin-bottom: 40px; /* 增加项目间距 */
+            }
+            
+            /* 日期：对齐到线右侧，不再居中 */
+            .timeline-date { 
+                width: 100%; 
+                text-align: left; 
+                padding-left: 35px; /* 留出线和点的空间 */
+                margin-bottom: 5px;
+                font-size: 0.9rem;
+                color: var(--accent); /* 手机上把日期标蓝，增加识别度 */
+            }
+            
+            /* 圆点：定位到最左侧的线上 */
+            .timeline-marker { 
+                left: 4px; /* 计算公式：10px(线位置) - 7px(圆半径) + 1px(微调) */
+                top: 5px; 
+            }
+            
+            /* 内容：全部对齐到线右侧 */
+            .timeline-content { 
+                padding-left: 35px; 
+                text-align: left;
+            }
+
+            /* --- 其他通用修复 --- */
+            .container { padding: 0 20px; }
+            
+            /* 修复语言桥接模块 */
+            .bridge-container { flex-direction: column; text-align: center; }
+            .bridge-text-box { padding: 20px; }
+            
+            /* 证书列表 */
+            .cert-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .cert-date { margin-left: 0; font-size: 0.85rem; color: #999; }
+            
+            /* Footer 按钮全宽 */
+            .btn { width: 100%; }
+            .btn-row { flex-direction: column; width: 100%; }
+            
+            /* 减少各板块间距 */
+            section { padding: 60px 0; }
+        }
 
         /* --- 其他部分的样式 (保持不变) --- */
         .story-section { background: #fafafa; }
@@ -362,47 +469,7 @@
         .cert-date { color: #999; font-size: 0.9rem; white-space: nowrap; margin-left: 20px; }
         .highlight-cert .cert-name { color: #764ba2; font-weight: 700; }
 
-        /* ========= 手机端适配 (Mobile Fix) ========= */
-        /* 以下代码仅在屏幕宽度小于 768px 时生效，不影响电脑版 */
-        @media (max-width: 768px) {
-            
-            /* 1. Hero 区域字体缩小 */
-            .hero-img-container { width: 200px; height: 200px; }
-            .hero-title-main { font-size: 3rem; line-height: 1.1; } /* 缩小 AI Innovation */
-            .hero-title-sub { font-size: 2.2rem; margin-top: 0; } /* 缩小 SAP Expertise */
-            .subtitle-simple { font-size: 1.1rem; padding: 0 10px; }
-
-            /* 2. 代码块调整 */
-            .impact-box { 
-                margin: 0 10px 30px; /* 增加左右边距，防止贴边 */
-                padding: 15px;       /* 减小内边距 */
-            }
-            .impact-text { font-size: 0.85rem; } /* 缩小代码字体 */
-
-            /* 3. 布局堆叠调整 */
-            .split-layout { flex-direction: column-reverse; } /* Story 图片在下，文字在上 */
-            .bridge-container { flex-direction: column; text-align: center; }
-            .bridge-text-box { padding: 20px; }
-            
-            /* 4. 时间轴修复 */
-            .timeline-container::before { left: 20px; }
-            .timeline-item { flex-direction: column; }
-            .timeline-date { width: 100%; text-align: left; padding-left: 40px; margin-bottom: 5px; }
-            .timeline-marker { left: 14px; }
-            .timeline-content { padding-left: 40px; }
-            
-            /* 5. 证书列表 */
-            .cert-item { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .cert-date { margin-left: 0; margin-top: 5px; font-size: 0.8rem; }
-            
-            /* 6. Footer 按钮 */
-            .btn-row { flex-direction: column; width: 100%; }
-            .btn { width: 100%; }
-            
-            /* 7. 减小板块间距 */
-            section { padding: 60px 0; }
-            .hero { padding-top: 80px; min-height: auto; padding-bottom: 60px; }
-        }
+        footer { background: #f5f5f7; padding: 80px 0; text-align: center; margin-top: 100px; }
     </style>
 </head>
 <body>
