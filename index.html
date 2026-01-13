@@ -89,7 +89,7 @@
             margin-bottom: 20px;
         }
         
-        /* AI Innovation (Top) */
+        /* AI Innovation */
         .hero-title-main {
             font-size: 4.8rem;
             font-weight: 800;
@@ -98,7 +98,7 @@
             display: block;
         }
         
-        /* SAP Expertise (Bottom) */
+        /* SAP Expertise */
         .hero-title-sub {
             font-size: 3.8rem;
             font-weight: 800;
@@ -130,17 +130,16 @@
         .impact-box {
             margin: 0 auto 30px;
             max-width: 680px;
-            /* 极客风：浅灰色代码块背景 */
             background: #f6f8fa; 
             border: 1px solid #d0d7de;
             border-radius: 8px;
             padding: 25px;
-            text-align: left; /* 代码左对齐 */
+            text-align: left;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             position: relative;
         }
         
-        /* 装饰：左上角的三个Mac窗口小圆点 */
+        /* 装饰：三个小圆点 */
         .impact-box::before {
             content: '•••'; 
             position: absolute;
@@ -152,12 +151,10 @@
             color: #e1e4e8;
             transition: color 0.3s;
         }
-        .impact-box:hover::before {
-            color: #ff5f56;
-        }
+        .impact-box:hover::before { color: #ff5f56; }
 
         .impact-text {
-            font-family: 'JetBrains Mono', monospace; /* 代码字体 */
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             color: #24292f;
             font-weight: 400;
@@ -165,7 +162,6 @@
             margin-top: 10px;
         }
         
-        /* 模拟命令行提示符 ">" */
         .cmd-prompt {
             color: #0071e3;
             margin-right: 10px;
@@ -173,7 +169,6 @@
             user-select: none;
         }
 
-        /* 强调文字 */
         .code-highlight {
             font-weight: 700;
             color: #000;
@@ -182,7 +177,6 @@
             border-radius: 4px;
         }
 
-        /* 光标闪烁动画 */
         .cursor {
             display: inline-block;
             width: 8px;
@@ -197,73 +191,37 @@
             50% { opacity: 0; }
         }
         
-        /* --- 按钮样式 (Secondary Pill Button) --- */
-        .hero-scroll-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            
-            background-color: #f5f5f7;
-            color: #1d1d1f;
-            
-            padding: 12px 24px;
-            border-radius: 30px;
-            
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            
-            /* 居中放置 */
-            margin-top: 25px; 
-            margin-left: auto;
-            margin-right: auto;
-            display: table;
-        }
-        
-        /* --- 新设计的：终端指令风格链接 (替代原来的按钮) --- */
+        /* --- 终端指令链接 --- */
         .terminal-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            
-            /* 关键改变：去掉背景色和边框，融入背景 */
             background-color: transparent;
-            color: #86868b; /* 默认灰色，像注释或未执行的命令 */
-            
-            font-family: 'JetBrains Mono', monospace; /* 统一使用代码字体 */
+            color: #86868b;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             font-weight: 500;
             text-decoration: none;
-            
-            margin-top: 20px; /* 稍微拉开一点距离，产生呼吸感 */
+            margin-top: 20px;
             transition: all 0.3s ease;
             position: relative;
         }
 
-        /* 鼠标悬停效果 */
         .terminal-link:hover {
-            color: #0071e3; /* 悬停变品牌蓝 */
-            transform: translateX(5px); /* 整体稍微右移，像是在输入 */
+            color: #0071e3;
+            transform: translateX(5px);
         }
 
-        /* 前面的箭头符号装饰 */
         .terminal-link::before {
             content: '>'; 
             font-weight: 700;
-            color: #0071e3; /* 箭头始终是蓝色，引导点击 */
+            color: #0071e3;
             margin-right: 2px;
         }
+        .terminal-link:hover { text-shadow: 0 0 15px rgba(0, 113, 227, 0.3); }
 
-        /* 可选：加一个下划线闪烁效果，像光标 */
-        .terminal-link:hover {
-            text-shadow: 0 0 15px rgba(0, 113, 227, 0.3);
-        }
-
-        /* --- Footer 功能区 --- */
+        /* --- Footer --- */
         footer { 
             background: #f5f5f7; 
             padding: 80px 0 60px; 
@@ -321,7 +279,6 @@
         .btn-secondary { background: #fff; color: #1d1d1f; border: 1px solid #e5e5e5; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
-        /* Side Project Link */
         .side-project-link {
             margin-top: 20px;
             font-size: 0.9rem;
@@ -348,26 +305,6 @@
         }
         .hero > * { animation: fadeInUp 0.8s ease-out both; }
 
-        /* 手机适配 */
-        @media (max-width: 768px) {
-            .hero-img-container { width: 200px; height: 200px; }
-            .hero-title-main { font-size: 3.2rem; }
-            .hero-title-sub { font-size: 2.6rem; margin-top: -2px; }
-            .subtitle-simple { font-size: 1.1rem; }
-            
-            .bridge-container { flex-direction: column; text-align: center; }
-            .bridge-text-box { padding: 20px; }
-            .timeline-container::before { left: 20px; }
-            .timeline-item { flex-direction: column; }
-            .timeline-date { width: 100%; text-align: left; padding-left: 40px; margin-bottom: 10px; }
-            .timeline-marker { left: 14px; }
-            .timeline-content { padding-left: 40px; }
-            .cert-item { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .cert-date { margin-left: 0; margin-top: 5px; font-size: 0.8rem; }
-            
-            .btn-row { flex-direction: column; width: 100%; }
-            .btn { width: 100%; }
-        }
 
         /* --- 其他部分的样式 (保持不变) --- */
         .story-section { background: #fafafa; }
@@ -425,7 +362,47 @@
         .cert-date { color: #999; font-size: 0.9rem; white-space: nowrap; margin-left: 20px; }
         .highlight-cert .cert-name { color: #764ba2; font-weight: 700; }
 
-        footer { background: #f5f5f7; padding: 80px 0; text-align: center; margin-top: 100px; }
+        /* ========= 手机端适配 (Mobile Fix) ========= */
+        /* 以下代码仅在屏幕宽度小于 768px 时生效，不影响电脑版 */
+        @media (max-width: 768px) {
+            
+            /* 1. Hero 区域字体缩小 */
+            .hero-img-container { width: 200px; height: 200px; }
+            .hero-title-main { font-size: 3rem; line-height: 1.1; } /* 缩小 AI Innovation */
+            .hero-title-sub { font-size: 2.2rem; margin-top: 0; } /* 缩小 SAP Expertise */
+            .subtitle-simple { font-size: 1.1rem; padding: 0 10px; }
+
+            /* 2. 代码块调整 */
+            .impact-box { 
+                margin: 0 10px 30px; /* 增加左右边距，防止贴边 */
+                padding: 15px;       /* 减小内边距 */
+            }
+            .impact-text { font-size: 0.85rem; } /* 缩小代码字体 */
+
+            /* 3. 布局堆叠调整 */
+            .split-layout { flex-direction: column-reverse; } /* Story 图片在下，文字在上 */
+            .bridge-container { flex-direction: column; text-align: center; }
+            .bridge-text-box { padding: 20px; }
+            
+            /* 4. 时间轴修复 */
+            .timeline-container::before { left: 20px; }
+            .timeline-item { flex-direction: column; }
+            .timeline-date { width: 100%; text-align: left; padding-left: 40px; margin-bottom: 5px; }
+            .timeline-marker { left: 14px; }
+            .timeline-content { padding-left: 40px; }
+            
+            /* 5. 证书列表 */
+            .cert-item { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .cert-date { margin-left: 0; margin-top: 5px; font-size: 0.8rem; }
+            
+            /* 6. Footer 按钮 */
+            .btn-row { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            
+            /* 7. 减小板块间距 */
+            section { padding: 60px 0; }
+            .hero { padding-top: 80px; min-height: auto; padding-bottom: 60px; }
+        }
     </style>
 </head>
 <body>
@@ -737,5 +714,4 @@
         });
     </script>
 </body>
-
 </html>
