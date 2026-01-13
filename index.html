@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://kiryuyu7227-maker.github.io/portfolio/" />
     <meta property="og:type" content="website" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -19,10 +19,9 @@
         :root {
             --bg-color: #ffffff;
             --text-main: #1d1d1f;
-            --text-sub: #86868b;
+            --text-sub: #6e6e73;
             --accent: #0071e3;
             --ai-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            --pmo-gradient: linear-gradient(135deg, #0071e3 0%, #4facfe 100%);
             --card-bg: #fbfbfd;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -68,23 +67,46 @@
             text-align: center;
             padding-top: 100px;
         }
+        
+        /* 头像 */
         .hero-img-container {
             width: 280px; 
             height: 280px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 0 auto 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-            border: 8px solid #fff; 
+            margin: 0 auto 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 6px solid #fff;
         }
         .hero-img { width: 100%; height: 100%; object-fit: cover; }
         
-        h1 {
-            font-size: 4rem;
+        /* 标题容器 */
+        .hero-title-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 20px;
+        }
+        
+        /* AI Innovation (Top) */
+        .hero-title-main {
+            font-size: 4.8rem;
             font-weight: 800;
             letter-spacing: -2px;
-            margin-bottom: 20px;
             line-height: 1.1;
+            display: block;
+        }
+        
+        /* SAP Expertise (Bottom) */
+        .hero-title-sub {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: #1d1d1f;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            display: block;
+            margin-top: -5px;
         }
         
         .gradient-text {
@@ -93,260 +115,317 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
+        /* 副标题 */
+        .subtitle-simple {
             font-size: 1.4rem;
             color: var(--text-sub);
-            font-weight: 300;
+            font-weight: 400;
             max-width: 750px;
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+            letter-spacing: -0.2px;
+        }
+
+        /* --- 核心宣言 (Geek/Code Style) --- */
+        .impact-box {
+            margin: 0 auto 30px;
+            max-width: 680px;
+            /* 极客风：浅灰色代码块背景 */
+            background: #f6f8fa; 
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: left; /* 代码左对齐 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            position: relative;
         }
         
-        .btn-group { display: flex; gap: 20px; justify-content: center; }
-        .btn {
-            padding: 14px 35px;
+        /* 装饰：左上角的三个Mac窗口小圆点 */
+        .impact-box::before {
+            content: '•••'; 
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            font-size: 24px;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #e1e4e8;
+            transition: color 0.3s;
+        }
+        .impact-box:hover::before {
+            color: #ff5f56;
+        }
+
+        .impact-text {
+            font-family: 'JetBrains Mono', monospace; /* 代码字体 */
+            font-size: 0.95rem;
+            color: #24292f;
+            font-weight: 400;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+        
+        /* 模拟命令行提示符 ">" */
+        .cmd-prompt {
+            color: #0071e3;
+            margin-right: 10px;
+            font-weight: 700;
+            user-select: none;
+        }
+
+        /* 强调文字 */
+        .code-highlight {
+            font-weight: 700;
+            color: #000;
+            background-color: rgba(0, 113, 227, 0.1);
+            padding: 0 4px;
+            border-radius: 4px;
+        }
+
+        /* 光标闪烁动画 */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: #24292f;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* --- 按钮样式 (Secondary Pill Button) --- */
+        .hero-scroll-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            
+            padding: 12px 24px;
             border-radius: 30px;
-            font-size: 1rem;
+            
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            
+            /* 居中放置 */
+            margin-top: 25px; 
+            margin-left: auto;
+            margin-right: auto;
+            display: table;
+        }
+        
+        /* --- 新设计的：终端指令风格链接 (替代原来的按钮) --- */
+        .terminal-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            
+            /* 关键改变：去掉背景色和边框，融入背景 */
+            background-color: transparent;
+            color: #86868b; /* 默认灰色，像注释或未执行的命令 */
+            
+            font-family: 'JetBrains Mono', monospace; /* 统一使用代码字体 */
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            
+            margin-top: 20px; /* 稍微拉开一点距离，产生呼吸感 */
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* 鼠标悬停效果 */
+        .terminal-link:hover {
+            color: #0071e3; /* 悬停变品牌蓝 */
+            transform: translateX(5px); /* 整体稍微右移，像是在输入 */
+        }
+
+        /* 前面的箭头符号装饰 */
+        .terminal-link::before {
+            content: '>'; 
+            font-weight: 700;
+            color: #0071e3; /* 箭头始终是蓝色，引导点击 */
+            margin-right: 2px;
+        }
+
+        /* 可选：加一个下划线闪烁效果，像光标 */
+        .terminal-link:hover {
+            text-shadow: 0 0 15px rgba(0, 113, 227, 0.3);
+        }
+
+        /* --- Footer 功能区 --- */
+        footer { 
+            background: #f5f5f7; 
+            padding: 80px 0 60px; 
+            text-align: center; 
+            margin-top: 100px; 
+        }
+
+        .footer-action-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .footer-intro {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .privacy-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #86868b;
+        }
+        .btn-row {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            min-width: 200px;
         }
-        .btn-primary { background: var(--text-main); color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .btn-secondary { background: #f5f5f7; color: var(--text-main); }
-        .btn:hover { transform: translateY(-3px); }
+        .btn-primary { background: #1d1d1f; color: #fff; border: 1px solid #1d1d1f; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .btn-secondary { background: #fff; color: #1d1d1f; border: 1px solid #e5e5e5; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
-        /* --- 故事板块 --- */
+        /* Side Project Link */
+        .side-project-link {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            border: 1px dashed #ccc;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: transparent;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .side-project-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: #fff;
+        }
+
+        /* --- 动画 --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero > * { animation: fadeInUp 0.8s ease-out both; }
+
+        /* 手机适配 */
+        @media (max-width: 768px) {
+            .hero-img-container { width: 200px; height: 200px; }
+            .hero-title-main { font-size: 3.2rem; }
+            .hero-title-sub { font-size: 2.6rem; margin-top: -2px; }
+            .subtitle-simple { font-size: 1.1rem; }
+            
+            .bridge-container { flex-direction: column; text-align: center; }
+            .bridge-text-box { padding: 20px; }
+            .timeline-container::before { left: 20px; }
+            .timeline-item { flex-direction: column; }
+            .timeline-date { width: 100%; text-align: left; padding-left: 40px; margin-bottom: 10px; }
+            .timeline-marker { left: 14px; }
+            .timeline-content { padding-left: 40px; }
+            .cert-item { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .cert-date { margin-left: 0; margin-top: 5px; font-size: 0.8rem; }
+            
+            .btn-row { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+        }
+
+        /* --- 其他部分的样式 (保持不变) --- */
         .story-section { background: #fafafa; }
         .split-layout { display: flex; align-items: center; gap: 60px; }
-        
-        .story-gallery {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr; 
-            gap: 15px;
-            position: relative;
-        }
-        .gallery-item {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease;
-            position: relative;
-        }
+        .story-gallery { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .gallery-item { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .gallery-item:nth-child(2) { margin-top: 40px; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
         .gallery-item:hover img { transform: scale(1.05); }
-
         .story-content { flex: 1; }
-        .section-tag {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #764ba2;
-            margin-bottom: 15px;
-            display: block;
-        }
+        .section-tag { text-transform: uppercase; font-size: 0.85rem; font-weight: 700; color: #764ba2; margin-bottom: 15px; display: block; }
         .story-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 25px; line-height: 1.2; }
         .story-text { color: #555; font-size: 1.05rem; margin-bottom: 20px; }
-
-        /* --- 核心竞争力对比 --- */
-        .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .focus-card {
-            padding: 50px 40px; 
-            border-radius: 24px;
-            background: #fff;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
+        
+        .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .focus-card { padding: 50px 40px; border-radius: 24px; background: #fff; border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
         .focus-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        
-        .focus-card.ai-card {
-            background: linear-gradient(180deg, #fff 0%, #fbfaff 100%);
-            border: 1px solid rgba(118, 75, 162, 0.15);
-        }
-        .focus-card.pmo-card {
-            background: linear-gradient(180deg, #fff 0%, #f0f8ff 100%);
-            border: 1px solid rgba(0, 113, 227, 0.15);
-        }
-        
-        .focus-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 25px; letter-spacing: -0.5px; }
-        
-        .skill-pill {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-right: 8px;
-            margin-bottom: 12px;
-        }
+        .focus-card.ai-card { background: linear-gradient(180deg, #fff 0%, #fbfaff 100%); border: 1px solid rgba(118, 75, 162, 0.15); }
+        .focus-card.pmo-card { background: linear-gradient(180deg, #fff 0%, #f0f8ff 100%); border: 1px solid rgba(0, 113, 227, 0.15); }
+        .focus-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 25px; }
+        .skill-pill { display: inline-block; padding: 8px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 500; margin-right: 8px; margin-bottom: 12px; }
         .pill-sap { background: #f0f0f0; color: #333; }
         .pill-ai { background: #f3e5f5; color: #7b1fa2; border: 1px solid rgba(123, 31, 162, 0.1); }
         .pill-pmo { background: #e3f2fd; color: #0071e3; border: 1px solid rgba(0, 113, 227, 0.1); }
 
-        /* --- 工作经历 (Timeline) --- */
-        .timeline-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 160px; 
-            top: 10px;
-            bottom: 0;
-            width: 2px;
-            background: #f0f0f0;
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        .timeline-item:last-child { margin-bottom: 0; }
-        
-        .timeline-date {
-            width: 160px;
-            flex-shrink: 0;
-            text-align: right;
-            padding-right: 40px;
-            font-weight: 600;
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            padding-top: 5px;
-        }
-        
-        .timeline-marker {
-            position: absolute;
-            left: 154px;
-            top: 8px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #fff;
-            border: 3px solid var(--accent);
-            z-index: 2;
-        }
-
-        .timeline-content {
-            flex: 1;
-            padding-left: 40px;
-            transition: var(--transition);
-        }
-        .timeline-content:hover { transform: translateX(10px); }
-
-        .job-title { font-size: 1.3rem; font-weight: 700; color: #333; margin-bottom: 5px; }
-        .company-name { font-size: 1rem; color: #666; font-weight: 500; display: block; margin-bottom: 15px; }
-        
-        .job-desc { list-style: none; }
-        .job-desc li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.6;
-        }
-        .job-desc li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-        .highlight-word { font-weight: 600; color: #333; }
-
-        /* --- 语言模块 (新样式 - Cultural Bridge Layout) --- */
-        /* 这个是控制“左图右文”的关键 CSS */
-        .bridge-container {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto 40px;
-        }
-        .bridge-img-wrapper {
-            flex: 0 0 180px; /* 固定宽度 */
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
+        .bridge-container { display: flex; align-items: center; gap: 30px; max-width: 900px; margin: 0 auto 40px; }
+        .bridge-img-wrapper { flex: 0 0 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .bridge-img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .bridge-text-box {
-            flex: 1;
-            background: linear-gradient(135deg, #f0f8ff 0%, #f5f7fa 100%);
-            border: 1px solid rgba(0, 113, 227, 0.1);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
-
-        .lang-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .lang-card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            text-align: center;
-        }
+        .bridge-text-box { flex: 1; background: linear-gradient(135deg, #f0f8ff 0%, #f5f7fa 100%); border: 1px solid rgba(0, 113, 227, 0.1); border-radius: 16px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .lang-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #eee; text-align: center; }
         .lang-name { display: block; font-weight: 700; margin-bottom: 5px; color: #333; }
         .lang-level { display: block; font-size: 0.85rem; color: #764ba2; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* --- 证书列表 --- */
+        .timeline-container { max-width: 900px; margin: 0 auto; position: relative; }
+        .timeline-container::before { content: ''; position: absolute; left: 160px; top: 10px; bottom: 0; width: 2px; background: #f0f0f0; }
+        .timeline-item { display: flex; margin-bottom: 60px; position: relative; }
+        .timeline-date { width: 160px; flex-shrink: 0; text-align: right; padding-right: 40px; font-weight: 600; color: var(--text-sub); font-size: 0.95rem; padding-top: 5px; }
+        .timeline-marker { position: absolute; left: 154px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--accent); z-index: 2; }
+        .timeline-content { flex: 1; padding-left: 40px; transition: var(--transition); }
+        .timeline-content:hover { transform: translateX(10px); }
+        .job-title { font-size: 1.3rem; font-weight: 700; color: #333; margin-bottom: 5px; }
+        .company-name { font-size: 1rem; color: #666; font-weight: 500; display: block; margin-bottom: 15px; }
+        .job-desc { list-style: none; }
+        .job-desc li { position: relative; padding-left: 20px; margin-bottom: 10px; font-size: 0.95rem; color: #555; line-height: 1.6; }
+        .job-desc li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        .highlight-word { font-weight: 600; color: #333; }
+
         .cert-container { max-width: 900px; margin: 80px auto 0; }
         .cert-list { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); overflow: hidden; }
         .cert-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; border-bottom: 1px solid #f5f5f7; transition: background 0.2s; }
-        .cert-item:last-child { border-bottom: none; }
         .cert-item:hover { background: #fafafa; }
         .cert-main { display: flex; align-items: center; gap: 15px; }
         .cert-name { font-weight: 600; color: #333; font-size: 1rem; }
         .cert-date { color: #999; font-size: 0.9rem; white-space: nowrap; margin-left: 20px; }
         .highlight-cert .cert-name { color: #764ba2; font-weight: 700; }
 
-        /* --- 页脚 --- */
         footer { background: #f5f5f7; padding: 80px 0; text-align: center; margin-top: 100px; }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .hero-img-container { width: 200px; height: 200px; }
-            .split-layout { flex-direction: column-reverse; }
-            .gallery-item:nth-child(2) { margin-top: 20px; }
-            
-            /* 手机端语言模块调整 */
-            .bridge-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .bridge-text-box {
-                padding: 20px;
-            }
-            
-            /* 手机端时间轴调整 */
-            .timeline-container::before { left: 20px; }
-            .timeline-item { flex-direction: column; }
-            .timeline-date { width: 100%; text-align: left; padding-left: 40px; margin-bottom: 10px; }
-            .timeline-marker { left: 14px; }
-            .timeline-content { padding-left: 40px; }
-            
-            .cert-item { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .cert-date { margin-left: 0; margin-top: 5px; font-size: 0.8rem; }
-        }
     </style>
 </head>
 <body>
@@ -365,34 +444,31 @@
     </header>
 
     <section class="hero">
-        <div class="container" data-aos="fade-up">
+        <div class="container">
             <div class="hero-img-container">
                 <img src="14.jfif" alt="Yu Kiryu Profile" class="hero-img">
             </div>
             
-            <h1>
-                SAP Expertise.<br>
-                <span class="gradient-text">AI Innovation.</span>
-            </h1>
-            
-            <p class="subtitle">
-                Transitioning from "under the hood" SAP implementation to <strong>Digital Supply Chain Consultancy</strong>. 
-                Combining technical roots with GenAI to solve business problems.
-            </p>
-            
-            <div class="btn-group">
-                <a href="mailto:kiryu@dornan.dk?subject=Request for Resume - Yu Kiryu" class="btn btn-primary">
-                    Request Detailed Resume
-                </a>
-                <a href="#experience" class="btn btn-secondary">See My History ↓</a>
+            <div class="hero-title-group">
+                <span class="hero-title-main gradient-text">AI Innovation.</span>
+                <span class="hero-title-sub">SAP Expertise.</span>
             </div>
-
-            <p style="font-size: 0.85rem; color: #86868b; margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-                <span style="font-size: 1rem; vertical-align: middle;">🔒</span> 
-                For privacy reasons, the full resume with specific project details is available upon request via 
-                <a href="mailto:kiryu@dornan.dk" style="color: #0071e3; text-decoration: underline;">Email</a> or 
-                <a href="https://linkedin.com/in/yukiryu" target="_blank" style="color: #0071e3; text-decoration: underline;">LinkedIn</a>.
+            
+            <p class="subtitle-simple">
+                Bridging technical roots with GenAI to solve business problems.
             </p>
+            
+            <div class="impact-box">
+                <p class="impact-text">
+                    <span class="cmd-prompt">&gt;</span>I don't just think—<span class="code-highlight">I EXECUTE();</span><br>
+                    <span class="cmd-prompt">&gt;</span>When I have an idea, I act on it right away.<span class="cursor"></span>
+                </p>
+            </div>
+            
+            <a href="#about" class="terminal-link">
+                cd ./see_my_journey
+            </a>
+
         </div>
     </section>
 
@@ -518,7 +594,6 @@
             <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 60px; text-align: center;">Professional Experience</h2>
             
             <div class="timeline-container">
-                
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-marker"></div>
                     <div class="timeline-date">01/2024 - 05/2025</div>
@@ -574,7 +649,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -582,61 +656,41 @@
     <section id="certifications" style="background: #fff;">
         <div class="container cert-container" data-aos="zoom-in-up">
             <h2 style="font-size: 2rem; margin-bottom: 40px; text-align: center;">Professional Certifications</h2>
-            
             <div class="cert-list">
                 <div class="cert-item highlight-cert">
-                    <div class="cert-main">
-                        <span class="cert-name">AI in Supply Chain Forecasting and Risk Management</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">AI in Supply Chain Forecasting and Risk Management</span></div>
                     <span class="cert-date">01/2026</span>
                 </div>
                 <div class="cert-item highlight-cert">
-                    <div class="cert-main">
-                        <span class="cert-name">GenAI for Supply Chain Optimization</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">GenAI for Supply Chain Optimization</span></div>
                     <span class="cert-date">12/2025</span>
                 </div>
                 <div class="cert-item highlight-cert">
-                    <div class="cert-main">
-                        <span class="cert-name">Microsoft Certified: Azure AI Fundamentals</span>
-                    </div>
-                    <span class="cert-date">12/2025</span>
-                </div>
-
-                <div class="cert-item">
-                    <div class="cert-main">
-                        <span class="cert-name">Google Foundations of User Experience (UX) Design</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">Microsoft Certified: Azure AI Fundamentals</span></div>
                     <span class="cert-date">12/2025</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-main">
-                        <span class="cert-name">SAP Certified Associate - Implementation Consultant (S/4HANA Cloud)</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">Google Foundations of User Experience (UX) Design</span></div>
+                    <span class="cert-date">12/2025</span>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-main"><span class="cert-name">SAP Certified Associate - Implementation Consultant (S/4HANA Cloud)</span></div>
                     <span class="cert-date">03/2024</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-main">
-                        <span class="cert-name">SAP Certified Application Associate - Sourcing and Procurement</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">SAP Certified Application Associate - Sourcing and Procurement</span></div>
                     <span class="cert-date">03/2023</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-main">
-                        <span class="cert-name">SAP Certified Consultant - SAP S/4HANA System Administration</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">SAP Certified Consultant - SAP S/4HANA System Administration</span></div>
                     <span class="cert-date">06/2022</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-main">
-                        <span class="cert-name">ERE (Economics Research Examination) - [Rank S]</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">ERE (Economics Research Examination) - [Rank S]</span></div>
                     <span class="cert-date">12/2017</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-main">
-                        <span class="cert-name">TOEFL IBT: 95</span>
-                    </div>
+                    <div class="cert-main"><span class="cert-name">TOEFL IBT: 95</span></div>
                     <span class="cert-date">07/2016</span>
                 </div>
             </div>
@@ -645,15 +699,31 @@
 
     <footer id="contact">
         <div class="container" data-aos="fade-up">
-            <h2 style="font-size: 2rem; margin-bottom: 20px;">Let's Build the Future</h2>
-            <p style="margin-bottom: 40px; color: var(--text-sub);">
-                Open to SAP & Supply Chain opportunities in Denmark.
-            </p>
-            <div>
-                <a href="mailto:kiryu@dornan.dk" class="btn btn-primary">Email Me</a>
-                <a href="https://linkedin.com/in/yukiryu" target="_blank" class="btn btn-secondary" style="margin-left: 10px;">LinkedIn</a>
+            
+            <div class="footer-action-area">
+                
+                <p class="footer-intro">
+                    Open to opportunities in <strong>SAP, AI, Digital Transformation & SCM</strong> within Denmark.
+                </p>
+
+                <div class="privacy-header">
+                    <span>🔒</span> Privacy Protected
+                </div>
+                <div class="btn-row">
+                    <a href="mailto:kiryu@dornan.dk?subject=Request for Resume - Yu Kiryu" class="btn btn-primary">
+                        Email for Detailed Resume
+                    </a>
+                    <a href="https://linkedin.com/in/yukiryu" target="_blank" class="btn btn-secondary">
+                        Connect on LinkedIn
+                    </a>
+                </div>
+
+                <a href="https://nordic-pdf-translator.vercel.app/" target="_blank" class="side-project-link">
+                    🚀 Please see my other AI-assisted portfolios ↗
+                </a>
             </div>
-            <p style="margin-top: 60px; font-size: 0.8rem; color: #ccc;">&copy; 2026 Yu Kiryu.</p>
+
+            <p style="margin-top: 50px; font-size: 0.8rem; color: #ccc;">&copy; 2026 Yu Kiryu.</p>
         </div>
     </footer>
 
