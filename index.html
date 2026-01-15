@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yu Kiryu - SAP & AI Supply Chain Portfolio</title>
+    <title>Yu Kiryu - SAP & AI Portfolio</title>
     
-    <meta property="og:title" content="Yu Kiryu - SAP & AI Supply Chain Portfolio" />
+    <meta property="og:title" content="Yu Kiryu - SAP & AI Portfolio" />
     <meta property="og:description" content="Bridging SAP Stability with AI Innovation. Explore my projects and vision." />
     <meta property="og:image" content="https://kiryuyu7227-maker.github.io/portfolio/preview.JPG" />
     <meta property="og:url" content="https://kiryuyu7227-maker.github.io/portfolio/" />
@@ -68,7 +68,6 @@
             padding-top: 100px;
         }
         
-        /* 头像 */
         .hero-img-container {
             width: 280px; 
             height: 280px;
@@ -80,7 +79,6 @@
         }
         .hero-img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* 标题容器 */
         .hero-title-group {
             display: flex;
             flex-direction: column;
@@ -89,7 +87,6 @@
             margin-bottom: 20px;
         }
         
-        /* AI Innovation (Top) */
         .hero-title-main {
             font-size: 4.8rem;
             font-weight: 800;
@@ -98,7 +95,6 @@
             display: block;
         }
         
-        /* SAP Expertise (Bottom) */
         .hero-title-sub {
             font-size: 3.8rem;
             font-weight: 800;
@@ -115,7 +111,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 副标题 */
         .subtitle-simple {
             font-size: 1.4rem;
             color: var(--text-sub);
@@ -130,17 +125,15 @@
         .impact-box {
             margin: 0 auto 30px;
             max-width: 680px;
-            /* 极客风：浅灰色代码块背景 */
             background: #f6f8fa; 
             border: 1px solid #d0d7de;
             border-radius: 8px;
             padding: 25px;
-            text-align: left; /* 代码左对齐 */
+            text-align: left;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             position: relative;
         }
         
-        /* 装饰：左上角的三个Mac窗口小圆点 */
         .impact-box::before {
             content: '•••'; 
             position: absolute;
@@ -152,12 +145,10 @@
             color: #e1e4e8;
             transition: color 0.3s;
         }
-        .impact-box:hover::before {
-            color: #ff5f56;
-        }
+        .impact-box:hover::before { color: #ff5f56; }
 
         .impact-text {
-            font-family: 'JetBrains Mono', monospace; /* 代码字体 */
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.95rem;
             color: #24292f;
             font-weight: 400;
@@ -165,7 +156,6 @@
             margin-top: 10px;
         }
         
-        /* 模拟命令行提示符 ">" */
         .cmd-prompt {
             color: #0071e3;
             margin-right: 10px;
@@ -173,7 +163,6 @@
             user-select: none;
         }
 
-        /* 强调文字 */
         .code-highlight {
             font-weight: 700;
             color: #000;
@@ -182,7 +171,6 @@
             border-radius: 4px;
         }
 
-        /* 光标闪烁动画 */
         .cursor {
             display: inline-block;
             width: 8px;
@@ -197,157 +185,37 @@
             50% { opacity: 0; }
         }
         
-        /* --- 按钮样式 (Secondary Pill Button) --- */
-        /* --- 终端指令链接 (Terminal Link - 找回丢失的特效) --- */
+        /* --- 终端指令链接 (Terminal Link - 确保这段样式存在！) --- */
         .terminal-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            
-            /* 关键：透明背景 + 灰色文字 */
             background-color: transparent;
             color: #86868b;
-            
-            /* 关键：必须使用 JetBrains Mono 才能有代码感 */
-            font-family: 'JetBrains Mono', monospace; 
+            font-family: 'JetBrains Mono', monospace; /* 关键：代码字体 */
             font-size: 0.95rem;
             font-weight: 500;
             text-decoration: none;
-            
             margin-top: 20px;
             transition: all 0.3s ease;
             position: relative;
         }
 
-        /* 鼠标悬停：文字变蓝 + 向右位移 */
         .terminal-link:hover {
             color: #0071e3;
             transform: translateX(5px);
-            /* 可选：增加微弱的光晕效果 */
-            text-shadow: 0 0 15px rgba(0, 113, 227, 0.3); 
         }
 
-        /* 关键：前面的蓝色箭头 > */
         .terminal-link::before {
             content: '>'; 
             font-weight: 700;
             color: #0071e3;
             margin-right: 2px;
         }
-        
-        .hero-scroll-btn:hover {
-            background-color: #e8e8ed;
-            transform: translateY(-2px);
-        }
+        .terminal-link:hover { text-shadow: 0 0 15px rgba(0, 113, 227, 0.3); }
 
-        /* --- Footer 功能区 --- */
-        footer { 
-            background: #f5f5f7; 
-            padding: 80px 0 60px; 
-            text-align: center; 
-            margin-top: 100px; 
-        }
-
-        .footer-action-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .footer-intro {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .privacy-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #86868b;
-        }
-        .btn-row {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 5px;
-        }
-        .btn {
-            padding: 14px 30px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-            min-width: 200px;
-        }
-        .btn-primary { background: #1d1d1f; color: #fff; border: 1px solid #1d1d1f; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        .btn-secondary { background: #fff; color: #1d1d1f; border: 1px solid #e5e5e5; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-
-        /* Side Project Link */
-        .side-project-link {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #666;
-            border: 1px dashed #ccc;
-            padding: 10px 20px;
-            border-radius: 50px;
-            background: transparent;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .side-project-link:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: #fff;
-        }
-
-        /* --- 动画 --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero > * { animation: fadeInUp 0.8s ease-out both; }
-
-        /* 手机适配 */
-        @media (max-width: 768px) {
-            .hero-img-container { width: 200px; height: 200px; }
-            .hero-title-main { font-size: 3.2rem; }
-            .hero-title-sub { font-size: 2.6rem; margin-top: -2px; }
-            .subtitle-simple { font-size: 1.1rem; }
-            
-            .bridge-container { flex-direction: column; text-align: center; }
-            .bridge-text-box { padding: 20px; }
-            .timeline-container::before { left: 20px; }
-            .timeline-item { flex-direction: column; }
-            .timeline-date { width: 100%; text-align: left; padding-left: 40px; margin-bottom: 10px; }
-            .timeline-marker { left: 14px; }
-            .timeline-content { padding-left: 40px; }
-            .cert-item { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .cert-date { margin-left: 0; margin-top: 5px; font-size: 0.8rem; }
-            
-            .btn-row { flex-direction: column; width: 100%; }
-            .btn { width: 100%; }
-        }
-
-        /* --- 其他部分的样式 (保持不变) --- */
+        /* --- Story / About Section --- */
         .story-section { background: #fafafa; }
         .split-layout { display: flex; align-items: center; gap: 60px; }
         .story-gallery { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
@@ -360,6 +228,7 @@
         .story-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 25px; line-height: 1.2; }
         .story-text { color: #555; font-size: 1.05rem; margin-bottom: 20px; }
         
+        /* --- Expertise Section --- */
         .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
         .focus-card { padding: 50px 40px; border-radius: 24px; background: #fff; border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
         .focus-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
@@ -371,6 +240,7 @@
         .pill-ai { background: #f3e5f5; color: #7b1fa2; border: 1px solid rgba(123, 31, 162, 0.1); }
         .pill-pmo { background: #e3f2fd; color: #0071e3; border: 1px solid rgba(0, 113, 227, 0.1); }
 
+        /* --- Global Bridge --- */
         .bridge-container { display: flex; align-items: center; gap: 30px; max-width: 900px; margin: 0 auto 40px; }
         .bridge-img-wrapper { flex: 0 0 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .bridge-img { width: 100%; height: 100%; object-fit: cover; }
@@ -380,6 +250,7 @@
         .lang-name { display: block; font-weight: 700; margin-bottom: 5px; color: #333; }
         .lang-level { display: block; font-size: 0.85rem; color: #764ba2; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
+        /* --- Timeline (Desktop Default) --- */
         .timeline-container { max-width: 900px; margin: 0 auto; position: relative; }
         .timeline-container::before { content: ''; position: absolute; left: 160px; top: 10px; bottom: 0; width: 2px; background: #f0f0f0; }
         .timeline-item { display: flex; margin-bottom: 60px; position: relative; }
@@ -394,6 +265,7 @@
         .job-desc li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
         .highlight-word { font-weight: 600; color: #333; }
 
+        /* --- Certifications --- */
         .cert-container { max-width: 900px; margin: 80px auto 0; }
         .cert-list { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); overflow: hidden; }
         .cert-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; border-bottom: 1px solid #f5f5f7; transition: background 0.2s; }
@@ -403,7 +275,100 @@
         .cert-date { color: #999; font-size: 0.9rem; white-space: nowrap; margin-left: 20px; }
         .highlight-cert .cert-name { color: #764ba2; font-weight: 700; }
 
-        footer { background: #f5f5f7; padding: 80px 0; text-align: center; margin-top: 100px; }
+        /* --- Footer --- */
+        footer { background: #f5f5f7; padding: 80px 0 60px; text-align: center; margin-top: 100px; }
+        .footer-action-area { display: flex; flex-direction: column; align-items: center; gap: 25px; max-width: 700px; margin: 0 auto; }
+        .footer-intro { font-size: 1.1rem; line-height: 1.6; color: #333; margin-bottom: 10px; }
+        .privacy-header { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #86868b; }
+        .btn-row { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 5px; }
+        .btn { padding: 14px 30px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; min-width: 200px; }
+        .btn-primary { background: #1d1d1f; color: #fff; border: 1px solid #1d1d1f; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .btn-secondary { background: #fff; color: #1d1d1f; border: 1px solid #e5e5e5; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .side-project-link { margin-top: 20px; font-size: 0.9rem; color: #666; border: 1px dashed #ccc; padding: 10px 20px; border-radius: 50px; background: transparent; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 6px; }
+        .side-project-link:hover { border-color: var(--accent); color: var(--accent); background: #fff; }
+
+        /* --- 动画 --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero > * { animation: fadeInUp 0.8s ease-out both; }
+
+        /* ========= 手机端适配修复 (Mobile Fix) ========= */
+        @media (max-width: 768px) {
+            
+            /* 1. Hero 区域基础调整 */
+            .hero { padding-top: 80px; padding-bottom: 60px; min-height: auto; }
+            .hero-img-container { width: 180px; height: 180px; margin-bottom: 25px; }
+            
+            /* 缩小超大标题，防止撑破屏幕 */
+            .hero-title-main { font-size: 3.2rem; line-height: 1.1; } 
+            .hero-title-sub { font-size: 2.4rem; margin-top: 0; } 
+            .subtitle-simple { font-size: 1.1rem; padding: 0 10px; margin-bottom: 30px; }
+
+            /* 代码块调整：增加左右留白 */
+            .impact-box { margin: 0 10px 30px; padding: 20px; }
+            .impact-text { font-size: 0.85rem; }
+
+            /* 2. 修复 Story/About 区域 (文字在上，图片在下) */
+            .split-layout { 
+                flex-direction: column-reverse; 
+                gap: 30px;
+            }
+            .story-content { 
+                width: 100%; 
+                text-align: left; 
+                padding: 0 5px; 
+            }
+            .story-title { 
+                font-size: 2rem; 
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+            .story-gallery { 
+                width: 100%; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 10px;
+                margin-top: 10px;
+            }
+            .gallery-item:nth-child(2) { margin-top: 20px; }
+
+            /* 3. 修复 Timeline (左侧线，右侧内容) */
+            .timeline-container::before { 
+                left: 10px; /* 线移到最左 */
+            }
+            .timeline-item { 
+                flex-direction: column; 
+                margin-bottom: 40px;
+            }
+            .timeline-date { 
+                width: 100%; 
+                text-align: left; 
+                padding-left: 35px; /* 避开线和圆点 */
+                margin-bottom: 5px;
+                font-size: 0.9rem;
+                color: var(--accent); /* 日期标蓝，更清晰 */
+            }
+            .timeline-marker { 
+                left: 4px; /* 对齐到线 */
+                top: 5px; 
+            }
+            .timeline-content { 
+                padding-left: 35px; /* 内容对齐 */
+                text-align: left;
+            }
+
+            /* 4. 其他通用修复 */
+            .container { padding: 0 20px; }
+            .bridge-container { flex-direction: column; text-align: center; }
+            .bridge-text-box { padding: 20px; }
+            .cert-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .cert-date { margin-left: 0; font-size: 0.85rem; color: #999; }
+            .btn { width: 100%; }
+            .btn-row { flex-direction: column; width: 100%; }
+            section { padding: 60px 0; }
+        }
     </style>
 </head>
 <body>
@@ -433,7 +398,7 @@
             </div>
             
             <p class="subtitle-simple">
-                Bridging technical roots with GenAI to solve business problems.
+                Quick learner exploring how AI reshapes traditional enterprise logic. Bridging technical roots with GenAI.
             </p>
             
             <div class="impact-box">
@@ -472,7 +437,7 @@
                         But in my recent projects (like streamlining logistics for a major Oil & Gas client), I realized something important: <strong>A stable system is just the baseline.</strong> The real value comes from how we use that system to make better business decisions.
                     </p>
                     <p class="story-text" style="font-weight: 500; color: #333;">
-                        This realization drove my transition. I am now pivoting to <strong>Digital Supply Chain Consultancy</strong>, integrating my SAP expertise with <strong>GenAI & Predictive Analysis</strong> to solve business problems.
+                        This realization drove my transition. I am now evolving into a <strong>Digital Solutions Consultant</strong>, integrating my <strong>SAP expertise</strong> with <strong>GenAI & Predictive Analysis</strong> to drive business innovation and solve complex operational challenges.
                     </p>
                 </div>
             </div>
@@ -495,7 +460,7 @@
                         <span class="skill-pill pill-sap">SAP S/4HANA</span>
                         <span class="skill-pill pill-sap">ECC Migration</span>
                         <span class="skill-pill pill-sap">Infrastructure (Basis)</span>
-                        <span class="skill-pill pill-sap">Process Mapping</span>
+                        <span class="skill-pill pill-sap">Business Process Optimization</span>
                     </div>
                 </div>
 
@@ -505,10 +470,10 @@
                         Forward-thinking application of Generative AI and predictive models to solve complex forecasting and risk management challenges.
                     </p>
                     <div>
-                        <span class="skill-pill pill-ai">GenAI for SCM</span>
+                        <span class="skill-pill pill-ai">GenAI Solutions</span>
                         <span class="skill-pill pill-ai">Predictive Forecasting</span>
                         <span class="skill-pill pill-ai">Risk Modeling</span>
-                        <span class="skill-pill pill-ai">Smart Inventory</span>
+                        <span class="skill-pill pill-ai">Data-Driven Insights</span>
                     </div>
                 </div>
 
@@ -551,7 +516,7 @@
                     </div>
                     <div class="lang-card">
                         <span class="lang-name">Japanese</span>
-                        <span class="lang-level">Near-Native / Business</span>
+                        <span class="lang-level">Near-Native</span>
                     </div>
                     <div class="lang-card">
                         <span class="lang-name">Chinese</span>
